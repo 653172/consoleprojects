@@ -15,13 +15,12 @@ from langchain_ollama import ChatOllama
 from langchain_core.documents import Document
 
 
-# 🔧 Tesseract path (Windows)
+
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 
-# ---------- APP CONFIG ----------
 
 st.set_page_config(
     page_title="AI PDF Assistant",
@@ -63,7 +62,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ---------- SMART PDF LOADER ----------
+
 
 def load_pdf_smart(pdf_path):
     docs = []
@@ -75,7 +74,7 @@ def load_pdf_smart(pdf_path):
     except:
         docs = []
 
-    # OCR fallback
+  
     if not docs or sum(len(d.page_content.strip()) for d in docs) < 50:
         images = convert_from_path(pdf_path)
 
@@ -86,7 +85,7 @@ def load_pdf_smart(pdf_path):
     return docs
 
 
-# ---------- VECTOR DB ----------
+
 
 def build_fresh_db(pdf_path):
     docs = load_pdf_smart(pdf_path)
@@ -113,7 +112,7 @@ def build_fresh_db(pdf_path):
     return db
 
 
-# ---------- SIDEBAR ----------
+
 
 with st.sidebar:
     st.markdown("### 📤 Upload Document")
@@ -137,7 +136,7 @@ with st.sidebar:
     st.markdown("💡 Supports scanned & normal PDFs")
 
 
-# ---------- MAIN ----------
+
 
 st.markdown("## 📄 AI Document Assistant")
 st.markdown("Ask questions and get precise answers from your PDF.")
