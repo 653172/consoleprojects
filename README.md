@@ -31,7 +31,7 @@ User → Streamlit UI → PDF Loader + OCR → Chunking → Embeddings → Chrom
 - HuggingFace Sentence Transformers
 - Tesseract OCR
 - Ollama (Llama3)
-
+note please delete the env folder and create your own virtual environment for better running 
 ---
 
 ## ▶️ Setup & Run
@@ -40,3 +40,4 @@ User → Streamlit UI → PDF Loader + OCR → Chunking → Embeddings → Chrom
 pip install -r requirements.txt
 ollama run llama3
 streamlit run app.py
+
